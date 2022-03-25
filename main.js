@@ -116,11 +116,13 @@ add.addEventListener("click", function(e){
         i++
         let promptMsg = prompt("Enter the Date","22/02/2022")
         window.localStorage.setItem(i , input.value)
-        window.localStorage.setItem(`DID-${i}` , promptMsg)
         createEls()
         task.setAttribute("id", `ID-${i}`)
         task.textContent = input.value
-        date.textContent = promptMsg
+        if(promptMsg !== ""){
+            date.textContent = promptMsg
+            window.localStorage.setItem(`DID-${i}` , promptMsg)
+        }
         date.style.color = "grey"
         appendFunc()
         input.value = ""
